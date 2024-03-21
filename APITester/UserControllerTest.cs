@@ -18,8 +18,12 @@ namespace APITester
         }
 
         [TestMethod]
-        public void Post_Teste_Ok()
+        [DataRow("Bruno")]
+        [DataRow("Eduardo")]
+        [DataRow("Dudu")]
+        public void Post_Teste_Ok(string nome)
         {
+            user.Nome = nome;
             var responseAPI = controller.Post(user);
             Assert.IsInstanceOfType(responseAPI, typeof(OkResult));
         }
